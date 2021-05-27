@@ -1,3 +1,4 @@
+
 #include <stdio.h>
 #include<stdlib.h>
 #include<string.h>
@@ -12,6 +13,8 @@ int CheckPalimdrome(char word[], char word2[]);
 int CompareString(char word[], char word2[]);
 void ConcatString(char word[], char word2[], char final[]);
 int Substring(char word[], char word2[]);
+void toLowerCase(char word[], char word2[]);
+void toUpperCase(char word[], char word2[]);
 
 int main(void)
 {
@@ -317,4 +320,40 @@ int Substring(char word[], char word2[])
         }
     }
     
+}
+
+void toLowerCase(char word[], char word2[])
+{
+    int len = StringLength(word);
+    int i = 0;
+    char ch = word[i];
+    
+    for(i = 0; i< len; i++)
+    {
+        ch = word[i];
+        if(ch >= 'A' && ch <= 'Z')//checking if character is uppercase
+        {
+            ch = ch + 32;
+        }
+        word2[i] = ch;//assigning character to the word
+        word2[i+1] = '\0';
+    }
+}
+
+void toUpperCase(char word[], char word2[])
+{
+    int len = StringLength(word);
+    int i = 0;
+    char ch = word[i];
+    
+    for(i = 0; i< len; i++)
+    {
+        ch = word[i];
+        if(ch >= 'a' && ch <= 'z')//checking if character is lowercase
+        {
+            ch = ch - 32;
+        }
+        word2[i] = ch;//assigning character to the word
+        word2[i+1] = '\0';
+    }
 }
